@@ -7,6 +7,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var env = builder.Environment;//DEVELOPMENT VEYA PRODUCTÝON ALMAMI SAÐLAYACAK
+builder.Configuration
+	.SetBasePath(env.ContentRootPath)
+	.AddJsonFile("appsettings.json",optional:false)
+	.AddJsonFile($"appsettings.{env.EnvironmentName}.json",optional:false);
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
