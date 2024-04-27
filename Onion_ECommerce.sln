@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{357D469D-23ED-4235-BAA8-731924DFAA6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{38F78545-BA9F-43ED-9111-F6FFDA4DA3B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3B3D7B79-0171-4121-BDC0-24C9FC86733F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeinfeldApi.Application", "Seinfeld.Application\SeinfeldApi.Application.csproj", "{3C1C0858-0EF5-4606-9E82-0359E85DEDBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeinfeldApi.Domain", "Core\Seinfeld.Domain\SeinfeldApi.Domain.csproj", "{363060E9-AD9E-424F-BCE5-20CF8033A82C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeinfeldApi.Infrastructure", "SeinfeldApi.Infrastructure\SeinfeldApi.Infrastructure.csproj", "{57466594-C5CC-48D0-A649-AA3A078E960F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeinfeldApi.Persistence", "Infrastructure\SeinfeldApi.Persistence\SeinfeldApi.Persistence.csproj", "{A36A1451-86F6-4213-833C-D134D6BAFF4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeinfeldApi.Apı", "SeinfeldApi.Apı\SeinfeldApi.Apı.csproj", "{5F9C9777-E8F9-409F-8850-FF824471DBC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C1C0858-0EF5-4606-9E82-0359E85DEDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1C0858-0EF5-4606-9E82-0359E85DEDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1C0858-0EF5-4606-9E82-0359E85DEDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1C0858-0EF5-4606-9E82-0359E85DEDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{363060E9-AD9E-424F-BCE5-20CF8033A82C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{363060E9-AD9E-424F-BCE5-20CF8033A82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{363060E9-AD9E-424F-BCE5-20CF8033A82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{363060E9-AD9E-424F-BCE5-20CF8033A82C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57466594-C5CC-48D0-A649-AA3A078E960F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57466594-C5CC-48D0-A649-AA3A078E960F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57466594-C5CC-48D0-A649-AA3A078E960F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57466594-C5CC-48D0-A649-AA3A078E960F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36A1451-86F6-4213-833C-D134D6BAFF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36A1451-86F6-4213-833C-D134D6BAFF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36A1451-86F6-4213-833C-D134D6BAFF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36A1451-86F6-4213-833C-D134D6BAFF4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F9C9777-E8F9-409F-8850-FF824471DBC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9C9777-E8F9-409F-8850-FF824471DBC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9C9777-E8F9-409F-8850-FF824471DBC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9C9777-E8F9-409F-8850-FF824471DBC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C1C0858-0EF5-4606-9E82-0359E85DEDBA} = {357D469D-23ED-4235-BAA8-731924DFAA6D}
+		{363060E9-AD9E-424F-BCE5-20CF8033A82C} = {357D469D-23ED-4235-BAA8-731924DFAA6D}
+		{57466594-C5CC-48D0-A649-AA3A078E960F} = {38F78545-BA9F-43ED-9111-F6FFDA4DA3B1}
+		{A36A1451-86F6-4213-833C-D134D6BAFF4B} = {38F78545-BA9F-43ED-9111-F6FFDA4DA3B1}
+		{5F9C9777-E8F9-409F-8850-FF824471DBC2} = {3B3D7B79-0171-4121-BDC0-24C9FC86733F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25A2A6A9-31A4-4CB4-95E0-29097F1EDE85}
+	EndGlobalSection
+EndGlobal
