@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Seinfeld.Domain\SeinfeldApi.Domain.csproj" />
+    <ProjectReference Include="..\..\Seinfeld.Application\SeinfeldApi.Application.csproj" />
   </ItemGroup>
 
 </Project>

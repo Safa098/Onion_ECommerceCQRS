@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SeinfeldApi.Application.InterFaces.Repositories;
 using SeinfeldApi.Persistence.Context;
+using SeinfeldApi.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,7 @@ namespace SeinfeldApi.Persistence
 			services.AddDbContext<AppDbContext>(opt =>
 			opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 			//core katmanına erişmemiz gerektiğinde işe yarar.
+			services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
 		}
 	}
 }
