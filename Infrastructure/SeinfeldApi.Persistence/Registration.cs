@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SeinfeldApi.Application.InterFaces.Repositories;
+using SeinfeldApi.Application.InterFaces.UnitOfWorks;
 using SeinfeldApi.Persistence.Context;
 using SeinfeldApi.Persistence.Repositories;
+using SeinfeldApi.Persistence.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,8 @@ namespace SeinfeldApi.Persistence
 			opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 			//core katmanına erişmemiz gerektiğinde işe yarar.
 			services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
+			services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+			services.AddScoped<IUnitOfWork,UnitOfWork>();
 		}
 	}
 }
