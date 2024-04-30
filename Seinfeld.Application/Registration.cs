@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SeinfeldApi.Application.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace SeinfeldApi.Application
 		public static void AddApplication(this IServiceCollection services)
 		{
 			var assembly = Assembly.GetExecutingAssembly();
+
+			services.AddTransient<ExcepctionMiddleware>();
 			services.AddMediatR(cfg=> cfg.RegisterServicesFromAssembly(assembly));
 		}
 	}

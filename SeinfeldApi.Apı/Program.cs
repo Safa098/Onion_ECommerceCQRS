@@ -1,6 +1,7 @@
 using SeinfeldApi.Persistence;
 using SeinfeldApi.Application;
 using SeinfeldApi.Mapper;
+using SeinfeldApi.Application.Exceptions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,6 +28,7 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+app.ConfigureExceptionMiddleware(); //runtime ile entegre edildi.
 
 app.UseAuthorization();
 
