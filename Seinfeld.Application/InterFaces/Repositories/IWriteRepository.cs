@@ -13,6 +13,8 @@ namespace SeinfeldApi.Application.InterFaces.Repositories
 		Task<T> UpdateAsync(T entity);
 	
 		Task HardDeleteAsync(T entity);// çok çok nadir kullanırız
+
+		Task  HardDeleteRangeAsync(IList<T> entity);
 		
 
 	}

@@ -35,9 +35,15 @@ namespace SeinfeldApi.Persistence.Repositories
 			return entity;                               //update işlemleri async olmaz kendi async methodumuzu kullanıcaz Run mwthodu
 		}
 
-		async Task IWriteRepository<T>.HardDeleteAsync(T entity)
+		  public async Task HardDeleteAsync(T entity)
 		{
 			await Task.Run(()=> Table.Remove(entity));
 		}
+		public async Task HardDeleteRangeAsync(IList<T> entity)
+		{
+			await Task.Run(() => Table.RemoveRange(entity));
+		}
+
+		
 	}
 }

@@ -23,6 +23,6 @@ namespace SeinfeldApi.Domain.Entities
 		public  string Name { get; set; }
 		public  int Priorty { get; set; }
 		public ICollection<Detail> Details { get; set; }//bire çok ilişki (category ve detail)
-		public ICollection<Product> Products { get; set; }//çoka çok ilişkilendirme (category ve product)
+		public ICollection<ProductCategory> ProductCategories { get; set; }//çoka çok ilişkilendirme (category ve product)
 	}
 }
