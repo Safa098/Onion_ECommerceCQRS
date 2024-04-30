@@ -21,6 +21,7 @@ namespace SeinfeldApi.Persistence.Context
 		public DbSet<Detail> Details { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Product> Products { get; set; }
+		public DbSet<ProductCategory> ProductCategories { get; set; }
 		//ara tablo oluşturmadık çünkü entity frame work tanıyıp otomatik olarak kuracaktır.
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
