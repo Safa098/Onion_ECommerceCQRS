@@ -1,5 +1,6 @@
 using SeinfeldApi.Persistence;
 using SeinfeldApi.Application;
+using SeinfeldApi.Mapper;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +18,7 @@ builder.Configuration
 
 builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

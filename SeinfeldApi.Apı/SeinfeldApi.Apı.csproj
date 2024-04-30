@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\SeinfeldApi.Persistence\SeinfeldApi.Persistence.csproj" />
+    <ProjectReference Include="..\SeinfeldApi.Mapper\SeinfeldApi.Mapper.csproj" />
   </ItemGroup>
 
 </Project>
