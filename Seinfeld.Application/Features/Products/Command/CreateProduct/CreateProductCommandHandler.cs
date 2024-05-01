@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SeinfeldApi.Application.Features.Products.Rules;
 using SeinfeldApi.Application.InterFaces.UnitOfWorks;
 using SeinfeldApi.Domain.Entities;
 using System;
@@ -12,15 +13,31 @@ namespace SeinfeldApi.Application.Features.Products.Command.CreateProduct
 	public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest,Unit>
 	{
 		private readonly IUnitOfWork unitOfWork;
+		private readonly ProductRules productRules;
 
-		public CreateProductCommandHandler(IUnitOfWork unitOfWork)
+		public CreateProductCommandHandler(IUnitOfWork unitOfWork,ProductRules productRules)
         {
 			this.unitOfWork = unitOfWork;
+			this.productRules = productRules;
 		}
         public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
 		{
 			Product product = new(request.Title,request.Description,request.BrandId,request.Price,request.Discount);
-			await unitOfWork.GetWriteRepository<Product>().AddAsync(product);
+
+
+			IList<Product> products = await unitOfWork.GetReadRepository<Product>().GetAllAsync();
+			await productRules.ProductTitleMustNotBeSame(products, request.Title);
+            foreach (var item in products)
+            {
+                if (item.Title==request.Title)
+                {
+                    
+                }
+            }
+
+
+
+            await unitOfWork.GetWriteRepository<Product>().AddAsync(product);
 			if(await unitOfWork.SaveAsync() > 0)
 			{
                 foreach (var categoryId in request.CategoryIds)

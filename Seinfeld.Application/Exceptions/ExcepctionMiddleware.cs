@@ -46,7 +46,7 @@ namespace SeinfeldApi.Application.Exceptions
 			List<string> errors = new()
 			{
 				$"hata mesajı : {exception.Message}",
-				$"mesaj açıklaması : {exception.InnerException?.ToString()}"
+				
 			};
 			return httpContext.Response.WriteAsync(new ExceptionModel
 			{
