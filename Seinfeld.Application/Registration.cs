@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using SeinfeldApi.Application.Beheviors;
+using SeinfeldApi.Application.Features.Products.Rules;
+using SeinfeldApi.Application.Bases;
 
 namespace SeinfeldApi.Application
 {
@@ -20,6 +22,7 @@ namespace SeinfeldApi.Application
 			var assembly = Assembly.GetExecutingAssembly();
 
 			services.AddTransient<ExcepctionMiddleware>();
+			services.AddrulesFromAsemblyContaining(assembly, typeof(BaseRules));
 			services.AddMediatR(cfg=> cfg.RegisterServicesFromAssembly(assembly));
 
 			services.AddValidatorsFromAssembly(assembly);
@@ -28,5 +31,17 @@ namespace SeinfeldApi.Application
 
 			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FludentValidationBehevior <,>));
 		}
+		private static IServiceCollection AddrulesFromAsemblyContaining(this IServiceCollection services,
+			Assembly assembly,
+			Type type)
+		{
+			var types = assembly.GetTypes().Where(t=>t.IsSubclassOf(type)&&type!=t).ToList();
+			foreach (var item in types)
+				services.AddTransient(item);
+
+			return services;
+                
+            
+        }
 	}
 }
