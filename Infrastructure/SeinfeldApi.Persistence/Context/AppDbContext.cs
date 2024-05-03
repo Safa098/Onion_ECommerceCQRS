@@ -1,15 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SeinfeldApi.Domain.Entities;
 using System.Reflection;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace SeinfeldApi.Persistence.Context
 {
-	public class AppDbContext : DbContext
+	public class AppDbContext : IdentityDbContext<User,Role,Guid>
 	{
 		public AppDbContext() { }
 

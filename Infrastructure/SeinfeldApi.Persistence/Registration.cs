@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SeinfeldApi.Application.InterFaces.Repositories;
 using SeinfeldApi.Application.InterFaces.UnitOfWorks;
+using SeinfeldApi.Domain.Entities;
 using SeinfeldApi.Persistence.Context;
 using SeinfeldApi.Persistence.Repositories;
 using SeinfeldApi.Persistence.UnitOfWorks;
@@ -24,6 +25,16 @@ namespace SeinfeldApi.Persistence
 			services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
 			services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 			services.AddScoped<IUnitOfWork,UnitOfWork>();
+			services.
+				AddIdentityCore<User>(opt =>
+				{
+					opt.Password.RequireNonAlphanumeric = false;//alfabetik numara girilmezse hata verir.
+					opt.Password.RequiredLength = 2;
+					opt.Password.RequireUppercase = false;
+					opt.Password.RequireDigit = false;
+					opt.SignIn.RequireConfirmedEmail = false;
+				}).AddRoles<Role>().
+				AddEntityFrameworkStores<AppDbContext>();
 		}
 	}
 }
