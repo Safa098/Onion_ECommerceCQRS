@@ -2,6 +2,7 @@ using SeinfeldApi.Persistence;
 using SeinfeldApi.Application;
 using SeinfeldApi.Mapper;
 using SeinfeldApi.Application.Exceptions;
+using SeinfeldApi.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,6 +19,7 @@ builder.Configuration
 	.AddJsonFile($"appsettings.{env.EnvironmentName}.json",optional:false);
 
 builder.Services.AddPersistance(builder.Configuration);
+builder.Services.AddInFrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
 var app = builder.Build();
