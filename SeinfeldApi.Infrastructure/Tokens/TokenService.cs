@@ -80,7 +80,7 @@ namespace SeinfeldApi.Infrastructure.Tokens
 				InvariantCultureIgnoreCase))			
 				throw new SecurityTokenException("Token bulunamadı.");
 			return principal;
-			
+			//s
 		}
 	}
 }
