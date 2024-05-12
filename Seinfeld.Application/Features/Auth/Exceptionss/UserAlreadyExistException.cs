@@ -13,5 +13,6 @@ namespace SeinfeldApi.Application.Features.Auth.Exceptions
 		{
 
 		}
+		
 	}
 }
