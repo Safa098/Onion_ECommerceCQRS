@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using SeinfeldApi.Application.Bases;
 using SeinfeldApi.Application.InterFaces.AutoMapper;
 using SeinfeldApi.Application.InterFaces.UnitOfWorks;
 using SeinfeldApi.Domain.Entities;
@@ -10,14 +12,14 @@ using System.Threading.Tasks;
 
 namespace SeinfeldApi.Application.Features.Products.Command.UpdateProduct
 {
-	public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest,Unit>
+	public class UpdateProductCommandHandler : BaseHandler, IRequestHandler<UpdateProductCommandRequest,Unit>
 	{
-		private readonly IUnitOfWork unitOfWork;
+		
 		private readonly IMapper mapper;
 
-		public UpdateProductCommandHandler(IUnitOfWork unitOfWork,IMapper mapper)
-        {
-			this.unitOfWork = unitOfWork;
+		public UpdateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor) //bunlar için field oluşturmaya gerek kalmadan base'e yollayabilirim
+		{
+			
 			this.mapper = mapper;
 		}
         public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
