@@ -1,5 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using SeinfeldApi.Application.Bases;
 using SeinfeldApi.Application.Features.Products.Rules;
+using SeinfeldApi.Application.InterFaces.AutoMapper;
 using SeinfeldApi.Application.InterFaces.UnitOfWorks;
 using SeinfeldApi.Domain.Entities;
 using System;
@@ -10,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace SeinfeldApi.Application.Features.Products.Command.CreateProduct
 {
-	public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest,Unit>
+	public class CreateProductCommandHandler : BaseHandler, IRequestHandler<CreateProductCommandRequest,Unit>
 	{
-		private readonly IUnitOfWork unitOfWork;
+		
 		private readonly ProductRules productRules;
 
-		public CreateProductCommandHandler(IUnitOfWork unitOfWork,ProductRules productRules)
-        {
-			this.unitOfWork = unitOfWork;
+		public CreateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor) //bunlar için field oluşturmaya gerek kalmadan base'e yollayabilirim
+		{
+			
 			this.productRules = productRules;
 		}
         public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
