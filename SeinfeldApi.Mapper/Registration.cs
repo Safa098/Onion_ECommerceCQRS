@@ -13,7 +13,8 @@ namespace SeinfeldApi.Mapper
 	{
 		public static void AddCustomMapper(this IServiceCollection services)
 		{
-			services.AddSingleton<IMapper, AutoMapper.Mapper>();
+			services.AddSingleton<IMapper, AutoMapper.Mapper>();//ewlkrlşkqerişglk//lfgjklgkjwelşkjgwht
+			services.AddCustomMapper();
 		}
 	}
 }
